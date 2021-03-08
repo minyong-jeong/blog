@@ -6,10 +6,40 @@
     width: 100%;
     align-items: center;
     justify-items: center;
-    transition: 0.3s;
+    transition: 0.4s;
     color: white;
+
+    .tags {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        max-width: 850px;
+
+        .tag {
+            padding: 5px 8px 5px 8px;
+            margin: 5px 5px 0 0;
+            color:white;
+            background-color: rgb(41, 41, 41);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                background-color: rgb(83, 83, 83);
+            }
+        }
+    }
 
     h2 {
         margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .card-container {
+        .tags {
+            width: 93%;
+        }
     }
 }

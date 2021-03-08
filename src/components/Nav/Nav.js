@@ -12,13 +12,13 @@ const Nav = () => {
     }
     
     return (
-        <Link to="/" className="nav">
-            <div className="profile">
+        <div className="nav">
+            <Link to="/" className="profile">
                 <div className="introduce">
                     <h1>MY Devblog</h1>
                     <p>안녕하세요.</p>
                 </div>
-            </div>
+            </Link>
             <div className="social-buttons">
                 <div className="social-button" onClick={() => handleClick('https://github.com/minyong-jeong')}>
                     <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
@@ -30,7 +30,7 @@ const Nav = () => {
                     <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
                 </div>
             </div>
-        </Link>
+        </div>
     );
 };
 
