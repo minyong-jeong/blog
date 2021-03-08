@@ -1,0 +1,44 @@
+.post {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px 40px 20px 40px;
+}
+
+.title {
+    margin-bottom: 60px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+
+    h1 {
+        text-align: center;
+    }
+
+    .tags {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 30px;
+
+        .tag {
+            padding: 5px 8px 5px 8px;
+            color:white;
+            background-color: blue;
+            margin-right: 5px;
+            border-radius: 5px;
+            user-select: none;
+            cursor: pointer;
+            transition: 0.4s;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.markdown {
+    h1, h2 {
+        margin: 60px 0 30px 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(216, 216, 216);
+    }
+}
