@@ -1,7 +1,10 @@
 .post {
     max-width: 850px;
     margin: 0 auto;
-    padding: 20px 40px 20px 40px;
+    padding: 20px;
+    background-color: rgb(253, 253, 253);
+    color: black;
+    border-radius: 10px;
 }
 
 .title {
@@ -20,7 +23,6 @@
 
         .tag {
             padding: 5px 8px 5px 8px;
-            color:white;
             background-color: blue;
             margin-right: 5px;
             border-radius: 5px;
@@ -36,20 +38,17 @@
 }
 
 .markdown {
-    color: white;
     font-size: 16px;
 
-    h1 {
-        margin: 60px 0 30px 0;
-        padding-bottom: 20px;
+    h1, h2 {
+        padding: 10px 0 10px 0;
     }
 
-    h2 {
-        margin: 60px 0 30px 0;
-        padding-bottom: 15px;
+    p {
+        margin: 8px 0 8px 0;
     }
 
     pre, code, span {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
