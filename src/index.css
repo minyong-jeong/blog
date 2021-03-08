@@ -3,18 +3,17 @@
   src:url('./fonts/BMJUA_ttf.ttf');
 }
 
+@font-face {
+  font-family: 'NanumGothic';
+  src:url('./fonts/NanumGothic.ttf');
+}
+
 * {
   box-sizing: border-box;
-  font-family: 'BMJUA';
 }
 
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
