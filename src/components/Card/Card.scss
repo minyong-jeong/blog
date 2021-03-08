@@ -1,11 +1,14 @@
 .card {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     max-width: 850px;
-    margin: 10px 10px 20px 10px;
+    margin-bottom: 18px;
     background-color: white;
     color: black;
-    padding: 20px;
+    padding: 20px 20px 20px 20px;
     border-radius: 6px;
     text-decoration: none;
     user-select: none;
@@ -35,11 +38,11 @@
         font-size: 20px;
     }
 
-    .tags {
+    .card-tags {
         display: flex;
         flex-direction: row;
 
-        .tag {
+        .card-tag {
             padding: 5px 8px 5px 8px;
             color:white;
             background-color: rgb(41, 41, 41);

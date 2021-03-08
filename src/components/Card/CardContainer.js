@@ -11,7 +11,7 @@ const CardContainer = () => {
     const CardList = () => {
         const tagSet = new Set(['all']);
         let data = [];
-        postsData["posts"].map((post) => {
+        postsData["posts"].forEach((post) => {
             post.tags.forEach(t => tagSet.add(t));
             if (tag === 'all' || post.tags.includes(tag)) {
                 data.push(post);

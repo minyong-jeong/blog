@@ -8,10 +8,10 @@ const Card = ({post, setTag}) => {
         <div className="card">
             <Link to={link} className="link">{post.title}</Link>
             <p>{post.description}</p>
-            <div className="tags">
+            <div className="card-tags">
                 {
                     post.tags.map((tag) => (
-                        <div key={tag} className="tag" onClick={() => setTag(tag)}>{tag}</div>
+                        <div key={tag} className="card-tag" onClick={() => setTag(tag)}>{tag}</div>
                     ))
                 }
             </div>
