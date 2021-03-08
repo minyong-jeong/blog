@@ -7,18 +7,20 @@
     color: black;
     padding: 20px;
     border-radius: 6px;
-    transition: 0.2s;
     text-decoration: none;
-    cursor: pointer;
-
-    &:hover {
-        transform: translateY(-5px);
-    }
+    user-select: none;
 
     .link {
         margin-top: 0;
         color: black;
         font-size: 30px;
+        text-decoration: none;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            color: rgb(0, 26, 255);
+        }
     }
 
     p {

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const Card = ({post}) => {
     const link = '/' + post.markdown;
     return (
-        <Link to={link} className="card">
-            <div className="link">{post.title}</div>
+        <div className="card">
+            <Link to={link} className="link">{post.title}</Link>
             <p>{post.description}</p>
             <div className="tags">
                 {
@@ -15,7 +15,7 @@ const Card = ({post}) => {
                     ))
                 }
             </div>
-        </Link>
+        </div>
     );
 };
 
