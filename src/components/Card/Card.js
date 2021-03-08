@@ -3,7 +3,7 @@ import './Card.scss';
 import { Link } from 'react-router-dom';
 
 const Card = ({post}) => {
-    const link = '/post/' + post.markdown;
+    const link = '/' + post.markdown;
     return (
         <Link to={link} className="card">
             <div className="link">{post.title}</div>

@@ -14,7 +14,7 @@ const App = () => {
       <Nav/>
       <Switch>
         <Route exact={true} path="/" component={CardContainer}/>
-        <Route path="/post/:markdown" component={Post}/>
+        <Route path="/:markdown" component={Post}/>
         <Route component={Error404}/>
       </Switch>
     </div>
