@@ -6,7 +6,7 @@ const Card = ({post}) => {
     const link = '/post/' + post.markdown;
     return (
         <Link to={link} className="card">
-            <h1>{post.title}</h1>
+            <div className="link">{post.title}</div>
             <p>{post.description}</p>
             <div className="tags">
                 {

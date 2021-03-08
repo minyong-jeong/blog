@@ -4,8 +4,7 @@ import './Nav.scss';
 const Nav = () => {
     return (
         <div className="nav">
-            test
-            <div className="links"></div>
+            <h1>TODO: NAV 만들기</h1>
         </div>
     );
 };
