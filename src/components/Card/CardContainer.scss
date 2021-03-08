@@ -7,6 +7,10 @@
     justify-items: center;
     transition: 0.3s;
     color: white;
+
+    h2 {
+        margin-top: 0;
+    }
 }
 
 @media screen and (max-width: 1000px) {
