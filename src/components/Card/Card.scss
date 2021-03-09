@@ -18,11 +18,11 @@
         color: black;
         font-size: 30px;
         text-decoration: none;
-        transition: 0.3s;
+        transition: 0.2s;
         cursor: pointer;
 
         &:hover {
-            color: rgb(0, 26, 255);
+            color: rgb(0, 136, 41);
         }
     }
 
@@ -33,14 +33,13 @@
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         word-wrap: break-word;
-        line-height: 1.2em;
-        height: 2.4em;
         font-size: 20px;
     }
 
     .card-tags {
         display: flex;
         flex-direction: row;
+        z-index: 5;
 
         .card-tag {
             padding: 5px 8px 5px 8px;

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import ReactMarkdown from 'react-markdown';
+import PostsData from 'src/contexts/postsdata';
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -13,13 +14,14 @@ const renderers = {
 
 const Post = ({match}) => {
     const [markdown, setMarkdown] = useState(null);
+    const postsData = useContext(PostsData);
 
     useEffect(() => {
         readMarkdown();
     })
 
     async function readMarkdown() {
-        const MD = await import('src/posts/' + match.params.markdown);
+        const MD = await import('src/posts/' + postsData[match.params.markdown].path);
         const response = await fetch(MD.default);
         const text = await response.text();
         setMarkdown(text);

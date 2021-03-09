@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Card from './Card';
-
-import postsData from 'src/posts/posts.json';
+import PostsData from 'src/contexts/postsdata';
 
 import './CardContainer.scss';
 
@@ -9,14 +8,15 @@ const CardContainer = () => {
     const [tag, setTag] = useState('all');
     
     const CardList = () => {
+        const postsData = useContext(PostsData);
         const tagSet = new Set(['all']);
         let data = [];
-        postsData["posts"].forEach((post) => {
-            post.tags.forEach(t => tagSet.add(t));
-            if (tag === 'all' || post.tags.includes(tag)) {
-                data.push(post);
+        for (let key in postsData) {
+            postsData[key].tags.forEach(t => tagSet.add(t));
+            if (tag === 'all' || postsData[key].tags.includes(tag)) {
+                data.push(postsData[key]);
             }
-        });
+        }
         
         const tagArr = Array.from(tagSet);
         let ret = [
@@ -27,7 +27,7 @@ const CardContainer = () => {
             </div>,
             <h2 key={"main-tag-key"}>{tag} ({data.length})</h2>,
             data.map((post) => (
-                <Card key={post.id} post={post} setTag={setTag}/>
+                <Card key={post.id} id={post.markdown} setTag={setTag}/>
             )),
         ];
     
