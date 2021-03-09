@@ -1,0 +1,2 @@
+(this.webpackJsonpblog=this.webpackJsonpblog||[]).push([[21],{452:function(t,s,o){"use strict";o.r(s),s.default=o.p+"static/media/logrotate.93f1f3bf.md"}}]);
+//# sourceMappingURL=21.fccc22a6.chunk.js.map
