@@ -18,6 +18,19 @@ for (dirpath, dirnames, filenames) in os.walk(work_dir):
                     '# ', '').replace('#', '')
                 info["title"] = title
 
+                description = ""
+                while len(description) < 120:
+                    line = f.readline()
+                    if not line:
+                        break
+                    line = line.replace('#', '') \
+                               .replace('\n', '') \
+                               .replace('\t', '')
+                    if '```' not in line and '~~~' not in line:
+                        line = ' '.join(line.split())
+                        description = description + line
+                info["description"] = description
+
             rel_split = rel_path.split('/')[1:]
             info["markdown"] = rel_split[-1]
             info["path"] = rel_path[1:]
