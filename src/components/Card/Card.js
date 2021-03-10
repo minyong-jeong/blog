@@ -3,7 +3,7 @@ import './Card.scss';
 import { Link } from 'react-router-dom';
 import PostsData from 'src/contexts/postsdata';
 
-const Card = ({id, setTag}) => {
+const Card = ({id, tagHandler}) => {
     const postsData = useContext(PostsData);
     const link = '/' + postsData[id].markdown;
     return (
@@ -13,7 +13,7 @@ const Card = ({id, setTag}) => {
             <div className="card-tags">
                 {
                     postsData[id].tags.map((tag) => (
-                        <div key={tag} className="card-tag" onClick={() => setTag(tag)}>{tag}</div>
+                        <div key={tag} className="card-tag" onClick={() => tagHandler(tag)}>{tag}</div>
                     ))
                 }
             </div>

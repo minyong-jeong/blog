@@ -1,42 +1,61 @@
 import React, { useState, useContext } from 'react';
 import Card from './Card';
+import Pagination from './Pagination';
 import PostsData from 'src/contexts/postsdata';
 
 import './CardContainer.scss';
+import _ from 'lodash';
 
 const CardContainer = () => {
+    const postsData = useContext(PostsData);
     const [tag, setTag] = useState('all');
-    
-    const CardList = () => {
-        const postsData = useContext(PostsData);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pagedPosts, setPagedPosts] = useState(Object.values(postsData));
+    const [postCount, setPostCount] = useState(pagedPosts.length);
+    const pageSize = 10;
+
+    const pageHandler = (pageNum, t=tag) => {
+        const d = _.pickBy(postsData, (post) => t === 'all' || post.tags.includes(t));
+        const items = Object.values(d);
+        const startIndex = (pageNum - 1) * pageSize;
+        setPostCount(items.length);
+        setPagedPosts(
+            _(items)
+            .slice(startIndex)
+            .take(pageSize)
+            .value()
+        );
+        setCurrentPage(pageNum);
+        setTag(t);
+    }
+
+    const tagHandler = (t) => {
+        pageHandler(1, t);
+    }
+
+    const TagList = () => {
         const tagSet = new Set(['all']);
-        let data = [];
         for (let key in postsData) {
             postsData[key].tags.forEach(t => tagSet.add(t));
-            if (tag === 'all' || postsData[key].tags.includes(tag)) {
-                data.push(postsData[key]);
-            }
         }
-        
-        const tagArr = Array.from(tagSet);
-        let ret = [
+        const tList = Array.from(tagSet);
+        return (
             <div key={"main-tags-key"} className="tags">
-                {tagArr.map((t) => (
-                    <div key={t} className="tag" onClick={() => setTag(t)}>{t}</div>
+                {tList.map((t) => (
+                    <div key={t} className="tag" onClick={() => {pageHandler(1, t)}}>{t}</div>
                 ))}
-            </div>,
-            <h2 key={"main-tag-key"}>{tag} ({data.length})</h2>,
-            data.map((post) => (
-                <Card key={post.id} id={post.markdown} setTag={setTag}/>
-            )),
-        ];
-    
-        return ret;
+            </div>
+        )
     }
 
     return (
         <div className="card-container">
-            <CardList />
+            <TagList />
+            <h2 key={"main-tag-key"}>{tag} ({postCount})</h2>
+            {pagedPosts.map((post) => (
+                <Card key={post.id} id={post.markdown} tagHandler={tagHandler}/>
+            ))}
+            <Pagination key="pagenation" currentPage={currentPage} postCount={postCount} pageSize={pageSize} pageHandler={pageHandler}/>
         </div>
     );
 };
