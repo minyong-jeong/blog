@@ -32,7 +32,14 @@ const Post = ({match}) => {
     return (
         <div className="post">
             <div className="markdown">
-                <ReactMarkdown plugins={[gfm]} className="markdown-body" renderers={renderers} children={markdown} allowDangerousHtml />
+                {(markdown) ? 
+                <ReactMarkdown
+                    plugins={[gfm]}
+                    className="markdown-body"
+                    renderers={renderers}
+                    children={markdown}
+                    allowDangerousHtml
+                /> : <div><h3 class="loader-text">Loading...</h3><div class="loader"></div></div>}
             </div>
         </div>
     );
