@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import Card from './Card';
 import Pagination from './Pagination';
 import PostsData from 'src/contexts/postsdata';

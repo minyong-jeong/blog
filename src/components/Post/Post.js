@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
 import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
 import PostsData from 'src/contexts/postsdata';
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import './github-markdown.css';
 import './Post.scss';
 
 const renderers = {
@@ -30,7 +32,7 @@ const Post = ({match}) => {
     return (
         <div className="post">
             <div className="markdown">
-                <ReactMarkdown renderers={renderers} children={markdown} allowDangerousHtml />
+                <ReactMarkdown plugins={[gfm]} className="markdown-body" renderers={renderers} children={markdown} allowDangerousHtml />
             </div>
         </div>
     );
