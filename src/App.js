@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
-import Nav from './components/Nav/Nav';
-import Post from './components/Post/Post';
-import CardContainer from './components/Card/CardContainer';
-import Error404 from './components/Error/Error404';
+import loadable from '@loadable/component';
 
 import './App.scss';
+
+const Nav = loadable(() => import('./components/Nav/Nav'));
+const CardContainer = loadable(() => import('./components/Card/CardContainer'));
+const Post = loadable(() => import('./components/Post/Post'));
+const Error404 = loadable(() => import('./components/Error/Error404'));
 
 const App = () => {
   return (

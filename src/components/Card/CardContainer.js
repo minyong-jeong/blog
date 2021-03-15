@@ -7,12 +7,12 @@ import './CardContainer.scss';
 import _ from 'lodash';
 
 const CardContainer = () => {
+    const pageSize = 8;
     const postsData = useContext(PostsData);
     const [tag, setTag] = useState('all');
     const [currentPage, setCurrentPage] = useState(1);
-    const [pagedPosts, setPagedPosts] = useState(Object.values(postsData).slice(0, 8));
+    const [pagedPosts, setPagedPosts] = useState(Object.values(postsData).slice(0, pageSize));
     const [postCount, setPostCount] = useState(Object.values(postsData).length);
-    const pageSize = 8;
 
     const pageHandler = (pageNum, t=tag) => {
         const d = _.pickBy(postsData, (post) => t === 'all' || post.tags.includes(t));
