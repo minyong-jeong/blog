@@ -1,14 +1,34 @@
 import React, { useContext } from 'react';
 import './Card.scss';
-import { Link } from 'react-router-dom';
+import { Link, matchPath } from 'react-router-dom';
+import routes from '../../routes';
 import PostsData from 'src/contexts/postsdata';
 
 const Card = ({id, tagHandler}) => {
     const postsData = useContext(PostsData);
     const link = '/' + postsData[id].markdown;
+
+    const findComponentForRoute = (path, routes) => {
+        const matchingRoute = routes.find(route =>
+            matchPath(path, {
+            path: route.path,
+            exact: route.exact
+            })
+        );
+    
+        return matchingRoute ? matchingRoute.component : null;
+    };
+
+    const preloadRouteComponent = (path) => {
+        const component = findComponentForRoute(path, routes);
+        if (component && component.preload) {
+            component.preload();
+        }
+    };
+
     return (
         <div className="card">
-            <Link to={link} className="link">{postsData[id].title}</Link>
+            <Link to={link} className="link" onMouseOver={() => preloadRouteComponent(link)}>{postsData[id].title}</Link>
             <p>{postsData[id].description}</p>
             <div className="card-tags">
                 {
